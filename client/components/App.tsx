@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getWidgets } from '../apiClient'
 import { Widget } from '../../models/Widget'
 import AddWidgetsForm from './AddWidget'
+import WidgetComponent from './Widgets'
 
 function App() {
   const [widgets, setWidgets] = useState<Widget[]>([])
@@ -29,18 +30,7 @@ function App() {
         <AddWidgetsForm loadWidgets={loadWidgets} />
 
         {widgets.map((widget) => (
-          <div
-            key={widget.id}
-            style={{
-              backgroundColor: widget.name.split(' ')[0],
-              width: '200px',
-            }}
-          >
-            <h3>{widget.name}</h3>
-            <p>Price: {widget.price}</p>
-            <p>Manufacturer: {widget.mfg}</p>
-            <p>In Stock: {widget.inStock}</p>
-          </div>
+          <WidgetComponent key={widget.id} widget={widget} />
         ))}
       </div>
     </>
