@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { getWidgets } from '../apiClient'
-import * as Models from '../../models/Widget'
+import { Widget } from '../../models/Widget'
 
 function App() {
-  const [widgets, setWidgets] = useState([] as Models.Widget[])
+  const [widgets, setWidgets] = useState<Widget[]>([])
 
   useEffect(() => {
     getWidgets()
-      .then((widgets) => {
-        return setWidgets([widgets])
+      .then((widget) => {
+        const widgetArray = Array.isArray(widget) ? widget : [widget]
+        setWidgets(widgetArray)
       })
       .catch((error) => {
         console.error(error.message)
@@ -16,10 +17,19 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <h1>Widgets for the win!</h1>
-      
-    </div>
+    <>
+      <div>
+        <h1>Widgets for the win!</h1>
+        {widgets.map((widget) => (
+          <div key={widget.id}>
+            <h3>{widget.name}</h3>
+            <p>Price: {widget.price}</p>
+            <p>Manufacturer: {widget.mfg}</p>
+            <p>In Stock: {widget.inStock}</p>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 

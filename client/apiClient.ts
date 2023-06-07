@@ -7,5 +7,6 @@ const widgetUrl = '/api/v1/widgets/'
 export async function getWidgets() {
   const res = await request.get(widgetUrl)
   console.log(res.body)
+
   return res.body as Widget
 }
