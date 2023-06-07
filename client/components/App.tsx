@@ -24,12 +24,12 @@ function App() {
 
   return (
     <div>
+      <h1>Widgets for the win!</h1>
       <ul>
         {widgets.map((widget) => (
           <li key={widget.id}>{widget.name}</li>
         ))}
       </ul>
-      <h1>Widgets for the win!</h1>
     </div>
   )
 }
