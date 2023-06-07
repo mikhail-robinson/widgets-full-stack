@@ -30,4 +30,19 @@ router.post('/', async (req, res) => {
   }
 })
 
+router.delete('/', async (req, res) => {
+ 
+  try {
+    
+    const name = req.body.name 
+    const ids = await db.deleteWidget(name)
+    
+    // do I need to redirect?? OR will will it just 
+  } catch (err) {
+    if (err instanceof Error) {
+      res.status(500).json({ error: `Ooops, you've taken a wrong turn` })
+    }
+  }
+})
+
 export default router
