@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Widget } from "../../models/Widget"
 import { getWidgets } from "../apiClient"
 import WidgetList from "./WidgetList"
+import AddWidgetForm from "./AddWidgetForm"
 
 const initialWidgetsArr: Widget[] = [
 
@@ -24,6 +25,7 @@ function App() {
     <>
     <div>
       <h1>Widgets for the win!</h1>
+      <AddWidgetForm />
       <WidgetList widgets={widgets} />
     </div>
     </>
