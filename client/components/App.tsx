@@ -13,7 +13,8 @@ function App() {
   function loadWidgets() {
     //get the widgets from the api
     getWidgets()
-      .then((data) => console.log(data))
+      .then((data) => setWidgets(data))
+      // .then((data) => console.log(data))
       .catch((err) => {
         if (err instanceof Error) {
           console.error(err.message)
@@ -23,7 +24,11 @@ function App() {
 
   return (
     <div>
-      <p>{}</p>
+      <ul>
+        {widgets.map((widget) => (
+          <li key={widget.id}>{widget.name}</li>
+        ))}
+      </ul>
       <h1>Widgets for the win!</h1>
     </div>
   )
