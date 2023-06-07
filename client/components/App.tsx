@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Widget } from "../../models/Widget"
 import { getWidgets } from "../apiClient"
+import WidgetList from "./WidgetList"
 
 const initialWidgetsArr: Widget[] = [
 
@@ -23,12 +24,7 @@ function App() {
     <>
     <div>
       <h1>Widgets for the win!</h1>
-      <ul>
-        {widgets.map(widget => {
-          return(
-          <li key={widget.id}>{widget.name}</li>)
-        })}
-      </ul>
+      <WidgetList widgets={widgets} />
     </div>
     </>
   )
