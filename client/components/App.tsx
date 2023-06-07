@@ -25,11 +25,18 @@ function App() {
     <>
       <div>
         <h1>Widgets for the win!</h1>
+        <AddWidgetForm loadWidgets={loadWidgets} />
 
         {widgets.map((widget) => (
-          <p key={widget.id}>{widget.name}</p>
+          <>
+            <div key={widget.id}>
+              <p>Name: {widget.name}</p>
+              <p>Price: ${widget.price}</p>
+              <p>MFG: {widget.mfg}</p>
+              <p>Stock: {widget.inStock}</p>
+            </div>
+          </>
         ))}
-        <AddWidgetForm loadWidgets={loadWidgets} />
       </div>
     </>
   )

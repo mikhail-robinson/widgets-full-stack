@@ -18,14 +18,24 @@ function AddWidgetForm(props: Props) {
     const name = event.target.name
     const value = event.target.value
 
-    const newData = { ...widgetData, [name]: value }
-    setWidgetData(newData)
+    const newWidgetData = { ...widgetData, [name]: value }
+
+    if (name === 'price') {
+      setWidgetData(() => ({ ...newWidgetData, price: Number(value) }))
+      return
+    }
+    if (name === 'inStock') {
+      setWidgetData(() => ({ ...newWidgetData, inStock: Number(value) }))
+      return
+    }
+
+    setWidgetData(newWidgetData)
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     await addWidgets(widgetData)
-    props.loadWidgets
+    props.loadWidgets()
   }
 
   return (
