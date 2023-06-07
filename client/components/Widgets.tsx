@@ -18,7 +18,7 @@ function Widgets(props: Props) {
               <br />
               Price: ${widget.price}
               <br />
-              ???? whats an mfg?: Mother fucking game??? {widget.mfg}
+              MFG: {widget.mfg}
             </li>
           ))}
         </ul>
