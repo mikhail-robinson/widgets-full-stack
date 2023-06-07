@@ -15,17 +15,31 @@ export default function AddWidgetForm(props:Props) {
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const name = event.target.name
+
     const value = event.target.value
+
+    if (name === "price" || name == "inStock") {
+      setWidgetData(() => ({ ...widgetData, [name]: Number(value) }))
+      return
+    }
+
+    console.log(name);
+    
+    console.log(typeof value);
+    
 
     const newData = { ...widgetData, [name]: value }
 
+    
+    
+    
     setWidgetData(newData)
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     console.log(widgetData)
-    addWidget(widgetData)
+    await addWidget(widgetData)
     props.loadWidgets()
   }
 

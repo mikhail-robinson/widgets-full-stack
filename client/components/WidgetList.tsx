@@ -12,14 +12,14 @@ export default function WidgetList(props: Props) {
       
         {data.map((widget) => {
           return (
-            <>
-              <div key={widget.id} className="widgetListItem">
-                <strong>Name:</strong> {widget.name}
-                <strong> Price:</strong> ${widget.price}
-                <strong> Manufacturer:</strong> {widget.mfg}
-                <strong> Stock:</strong> {widget.inStock}
+            
+              <div key={widget.name} className="widgetListItem">
+                Name: {widget.name}
+                 Price: ${widget.price} 
+                 Manufacturer: {widget.mfg} 
+                 Stock: {widget.inStock} 
               </div>
-            </>
+            
           )
         })}
 

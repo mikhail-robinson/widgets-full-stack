@@ -1,19 +1,9 @@
 import * as z from 'zod'
 
 
-export interface NewWidget {
-  name: string
-  price: number
-  mfg: string
-  inStock: number
-}
 
-export interface Widget {
+export interface Widget extends NewWidget {
   id: number
-  name: string
-  price: number
-  mfg: string
-  inStock: number
 }
 
 export const widgetSchema = z.object({
@@ -22,3 +12,5 @@ export const widgetSchema = z.object({
   mfg: z.string(),
   inStock: z.number()
 })
+
+export type NewWidget = z.infer<typeof widgetSchema>
