@@ -1,27 +1,44 @@
 import { useEffect, useState } from 'react'
-import { Widget } from '../../models/Widget'
+//import { Widget } from '../../models/Widget'
+import * as Models from '../../models/Widget'
+import { getWidgets } from '../apiClient'
+import AddWidgetForm from './AddWidgetForm'
 
 function App() {
-  const [widgets, setWidgets] = useState([] as Widget[])
+  const [widgets, setWidgets] = useState([] as Models.Widget[])
 
   useEffect(() => {
-    console.log('using the effect')
-
-    //   fetchWidgets()
-    //     .then((fetchedWidgets) => {
-    //       setWidgets(fetchedWidgets)
-    //     })
-    //     .catch((err) => {
-    //       if (err instanceof Error) {
-    //         console.error(err.message)
-    //       }
-    //     })
+    loadWidget()
   }, [])
 
+  function loadWidget() {
+    getWidgets()
+      .then((gotWidgets) => {
+        setWidgets(gotWidgets)
+      })
+      .catch((err) => {
+        if (err instanceof Error) {
+          console.error(err.message)
+        }
+      })
+  }
+
   return (
-    <div>
-      <h1>Widgets for the win!</h1>
-    </div>
+    <>
+      <div>
+        <AddWidgetForm loadWidget={loadWidget} />
+      </div>
+      <ul>
+        {widgets.map((widget) => (
+          <li key={widget.id}>
+            <p>{widget.name}</p>
+            <p>{widget.price}</p>
+            <p>{widget.mfg}</p>
+            <p>{widget.inStock}</p>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
 
