@@ -14,7 +14,6 @@ function App() {
         }
       })
   }, [])
-  console.log(widgets)
   return (
     <div>
       <h1>Widgets for the win!</h1>
