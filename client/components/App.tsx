@@ -1,27 +1,33 @@
 import { useEffect, useState } from 'react'
 import { getWidgets } from '../apiClient'
-import { Widget } from '../../models/Widget'
+import { Widget, NewWidget } from '../../models/Widget'
 import AddWidgetsForm from './AddWidget'
 
 function App() {
   const [widgets, setWidgets] = useState<Widget[]>([])
 
   useEffect(() => {
+    loadWidgets()
+  }, [])
+
+  function loadWidgets() {
     getWidgets()
       .then((widget) => {
-        const widgetArray = Array.isArray(widget) ? widget : [widget]
-        setWidgets(widgetArray)
+        setWidgets(widget)
       })
-      .catch((error) => {
-        console.error(error.message)
+      .catch((err) => {
+        if (err instanceof Error) {
+          console.error(err.message)
+        }
       })
-  }, [])
+  }
+
 
   return (
     <>
       <div>
         <h1>Widgets for the win!</h1>
-        <AddWidgetsForm />
+        <AddWidgetsForm loadWidgets={loadWidgets} />
 
         {widgets.map((widget) => (
           <div

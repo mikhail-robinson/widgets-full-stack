@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Widget, NewWidget } from '../../models/Widget'
+import { NewWidget } from '../../models/Widget'
 import { addWidgets } from '../apiClient'
 
 interface Props {

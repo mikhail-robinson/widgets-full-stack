@@ -8,7 +8,7 @@ export async function getWidgets() {
   const res = await request.get(widgetUrl)
   console.log(res.body)
 
-  return res.body as Widget
+  return res.body as Widget[]
 }
 
 export async function addWidgets(newWidget: NewWidget) {
