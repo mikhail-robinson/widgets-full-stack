@@ -14,3 +14,7 @@ router.get('/', (req, res) => {
 })
 
 export default router
+
+router.post('/', (req, res) => {
+  res.status(200).json({ message: 'Post received!' })
+})

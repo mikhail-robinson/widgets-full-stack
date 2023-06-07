@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Widget } from '../../models/Widget'
+import * as Models from '../../models/Widget'
 import { getWidgets } from '../apiClient'
 
 function App() {
-  const [widgets, setWidgets] = useState([] as Widget[])
+  const [widgets, setWidgets] = useState([] as Models.Widget[])
 
   useEffect(() => {
     getWidgets()
@@ -14,14 +14,23 @@ function App() {
         if (err instanceof Error) {
           console.error(err.message)
         }
-      }),
-      [widgets]
-  })
+      })
+  }, [widgets])
 
   return (
-    <div>
+    <>
       <h1>Widgets for the win!</h1>
-    </div>
+      {widgets.map((widget) => {
+        return (
+          <h3 key={widget.id}>
+            <ul>{widget.name}:</ul>
+            <li>Price: {widget.price}</li>
+            <li>Made by: {widget.mfg}</li>
+            <li>Stock: {widget.inStock}</li>
+          </h3>
+        )
+      })}
+    </>
   )
 }
 
