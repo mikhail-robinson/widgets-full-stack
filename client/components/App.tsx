@@ -21,7 +21,7 @@ function App() {
     <>
       <div>
         <h1>Widgets for the win!</h1>
-        {/* <AddWidgetsForm loadWidgets={loadWidgets} /> */}
+        <AddWidgetsForm />
 
         {widgets.map((widget) => (
           <div

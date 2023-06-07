@@ -32,7 +32,7 @@ function AddWidgetsForm(props: Props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex flex-col">
+      <form onSubmit={handleSubmit} style={{}}>
         <label htmlFor="name">name</label>
         <input
           type="text"
