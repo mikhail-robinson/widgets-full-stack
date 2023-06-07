@@ -19,6 +19,14 @@ function AddWidgetForm(props: Props) {
     const value = event.target.value
 
     const newWidgetData = { ...widgetData, [name]: value }
+    if (name === 'price') {
+      setWidgetData(() => ({ ...newWidgetData, price: Number(value) }))
+      return
+    }
+    if (name === 'inStock') {
+      setWidgetData(() => ({ ...newWidgetData, inStock: Number(value) }))
+      return
+    }
 
     setWidgetData(newWidgetData)
   }

@@ -7,6 +7,10 @@ function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
 
   useEffect(() => {
+    loadWidgets()
+  }, [])
+
+  async function loadWidgets() {
     getWidgets()
       .then((gotWidgets) => {
         setWidgets(gotWidgets)
@@ -16,16 +20,11 @@ function App() {
           console.error(err.message)
         }
       })
-  }, [widgets])
-
+  }
   return (
     <>
       <h1>Widgets for the win!</h1>
-      <AddWidgetForm
-        loadWidgets={function (): void {
-          throw new Error('Function not implemented.')
-        }}
-      />
+      <AddWidgetForm loadWidgets={loadWidgets} />
       {widgets.map((widget) => {
         return (
           <h3 key={widget.id}>

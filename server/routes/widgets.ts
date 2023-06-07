@@ -1,17 +1,19 @@
 import express from 'express'
+import { schema } from '../../models/Widget'
 import { addWidgets, getWidgets } from '../db/db'
-import { widgetSchema } from '../../models/Widget'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  getWidgets()
-    .then((widgets) => {
-      res.json(widgets)
-    })
-    .catch((err) => {
-      res.status(500).send(err.message)
-    })
+router.get('/', async (req, res) => {
+  try {
+    const widgets = await getWidgets()
+    res.json(widgets)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error)
+      res.status(500).json({ error: error.message })
+    }
+  }
 })
 
 export default router
@@ -19,13 +21,13 @@ export default router
 router.post('/', async (req, res) => {
   try {
     const input = req.body
-    const widgetData = widgetSchema.parse(input)
-    const ids = await addWidgets(widgetData)
-    res.json({ id: ids[0] })
+    const widget = schema.parse(input)
+    const [id] = await addWidgets(widget)
+    res.json({ id })
   } catch (error) {
     if (error instanceof Error) {
+      console.log(error)
       res.status(500).json({ error: error.message })
     }
-    // res.status(200).json({ message: 'Post received!' })
   }
 })
