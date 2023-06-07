@@ -12,3 +12,7 @@ export async function getWidgets() {
 export async function addWidget(widget: NewWidget) {
   return await request.post(widgetUrl).send(widget)
 }
+
+export async function deleteWidget(id : number) {
+  return await request.delete(`${widgetUrl}${id}`)
+}

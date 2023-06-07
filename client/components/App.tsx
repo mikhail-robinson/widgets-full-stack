@@ -1,56 +1,48 @@
 import { useEffect, useState } from 'react'
 import * as Models from '../../models/Widget'
 import { getWidgets } from '../apiClient'
-import Widget from './Widget'
+import Widgets from './Widgets'
 import AddWidget from './AddWidget'
 import { addWidget } from '../apiClient'
 
-
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
-  const [newWidget, setNewWidget] = useState({
-    name : '',
-    price: 0,
-    mfg : '',
-    inStock : 0,
-  } as Models.NewWidget)
 
   useEffect(() => {
-    getWidgets().then((res) => setWidgets(res)).catch((err) => 
-    { 
-      if (err instanceof Error) 
-      console.error(err.message)})
+    loadWidgets()
   }, [])
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const name = event.target.name 
-    const value = event.target.value
-    const newData = { ...newWidget, [name]: value }
-
-    setNewWidget(newData)
+  function loadWidgets() {
+    getWidgets()
+      .then((res) => {
+        setWidgets(res)
+        
+      })
+      .catch((err) => {
+        if (err instanceof Error) console.error(err.message)
+      })
   }
 
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    await addWidget(newWidget)
-  }
 
   return (
-    <div style = {{display: "flex", flexDirection: "column", gap : "25px", alignItems: 'center'}}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '25px',
+        alignItems: 'center',
+      }}
+    >
+      
       <h1>Widgets for the win!</h1>
-      <AddWidget newWidget = {newWidget} handleChange = {handleChange} handleSubmit = {handleSubmit}/>
-      {
-        widgets.map((widget) => (
-            <Widget key = {widget.name} id={widget.id} name={widget.name} price = {widget.price} mfg = {widget.mfg} inStock = {widget.inStock}/>
-        ))
-      }
+
+      <AddWidget loadWidgets={loadWidgets} />
+      <Widgets widgets={widgets} />
     </div>
   )
 }
 
 export default App
-
 
 //handleChange
 //This function will update the data state everytime the user types something in. And then it gets updated in the form.

@@ -1,11 +1,43 @@
 import { AddNewWidget } from '../../models/Widget'
+import { useEffect, useState } from 'react'
+import * as Models from '../../models/Widget'
+import { getWidgets } from '../apiClient'
+import Widget from './Widgets'
+import { addWidget } from '../apiClient'
 
+interface Props {
+  loadWidgets: () => void
+}
 
-function AddWidget(props : AddNewWidget) {
-  const {newWidget, handleSubmit, handleChange} = props
+function AddWidget(props: Props) {
+  const [newWidget, setNewWidget] = useState({
+    name: '',
+    price: 0,
+    mfg: '',
+    inStock: 0,
+  } as Models.NewWidget)
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const name = event.target.name
+    const value = event.target.value
+    const newData = { ...newWidget, [name]: value }
+
+    setNewWidget(newData)
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    await addWidget(newWidget)
+
+    props.loadWidgets()
+  }
+
   return (
     <>
-      <form onSubmit={handleSubmit} style = {{display: 'flex', flexDirection: 'column', maxWidth: '200px'}}>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: 'flex', flexDirection: 'column', maxWidth: '200px' }}
+      >
         <label htmlFor="name">Widget Name</label>
         <input
           type="text"
