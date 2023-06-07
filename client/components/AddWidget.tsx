@@ -32,8 +32,13 @@ function AddWidgetsForm(props: Props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} style={{}}>
-        <label htmlFor="name">name</label>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: 'flex', flexDirection: 'column', width: '200px' }}
+      >
+        <label style={{ marginTop: '20px' }} htmlFor="name">
+          name
+        </label>
         <input
           type="text"
           name="name"
@@ -42,7 +47,9 @@ function AddWidgetsForm(props: Props) {
           value={widgetData.name}
           className="text-slate-900"
         />
-        <label htmlFor="price">price</label>
+        <label style={{ marginTop: '20px' }} htmlFor="price">
+          price
+        </label>
         <input
           type="text"
           name="price"
@@ -52,7 +59,9 @@ function AddWidgetsForm(props: Props) {
           className="text-slate-900"
         />
 
-        <label htmlFor="mfg">mfg</label>
+        <label style={{ marginTop: '20px' }} htmlFor="mfg">
+          mfg
+        </label>
         <input
           type="text"
           name="mfg"
@@ -62,7 +71,9 @@ function AddWidgetsForm(props: Props) {
           className="text-slate-900"
         />
 
-        <label htmlFor="inStock">inStock</label>
+        <label style={{ marginTop: '20px' }} htmlFor="inStock">
+          inStock
+        </label>
         <input
           type="text"
           name="inStock"
@@ -72,7 +83,9 @@ function AddWidgetsForm(props: Props) {
           className="text-slate-900"
         />
 
-        <button type="submit">Submit</button>
+        <button style={{ marginTop: '20px' }} type="submit">
+          Submit
+        </button>
       </form>
     </>
   )

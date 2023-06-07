@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getWidgets } from '../apiClient'
-import { Widget, NewWidget } from '../../models/Widget'
+import { Widget } from '../../models/Widget'
 import AddWidgetsForm from './AddWidget'
 
 function App() {
@@ -21,7 +21,6 @@ function App() {
         }
       })
   }
-
 
   return (
     <>
