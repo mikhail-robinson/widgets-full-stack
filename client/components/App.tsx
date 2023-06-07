@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import * as Models from '../../models/Widget'
 import { getWidgets } from '../apiClient'
+import AddWidgetForm from './AddWidgetForm'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
@@ -20,6 +21,11 @@ function App() {
   return (
     <>
       <h1>Widgets for the win!</h1>
+      <AddWidgetForm
+        loadWidgets={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+      />
       {widgets.map((widget) => {
         return (
           <h3 key={widget.id}>

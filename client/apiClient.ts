@@ -7,3 +7,7 @@ export async function getWidgets() {
   const res = await request.get(widgetUrl)
   return res.body as Widget[]
 }
+
+export async function addWidget(widget: Widget) {
+  return await request.post(widgetUrl).send(widget)
+}
