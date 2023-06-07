@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Widget } from '../../models/Widget'
 import { getWidgets } from '../apiClient'
 import * as Models from '../../models/Widget'
+import AddWidgetForm from './AddWidget'
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
 
@@ -29,6 +30,7 @@ function App() {
         {widgets.map((widget) => (
           <p key={widget.id}>{widget.name}</p>
         ))}
+        <AddWidgetForm loadWidgets={loadWidgets} />
       </div>
     </>
   )
