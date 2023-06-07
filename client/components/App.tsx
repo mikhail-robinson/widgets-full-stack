@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Widget } from '../../models/Widget'
 import { getWidgets } from '../apiClient'
 import * as Models from '../../models/Widget'
 import AddWidgetForm from './AddWidget'

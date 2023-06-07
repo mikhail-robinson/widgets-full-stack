@@ -31,7 +31,7 @@ function AddWidgetForm(props: Props) {
   return (
     <>
       <form onSubmit={handleSubmit} className="widget-form">
-        <label htmlFor="name">Widget Name</label>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
@@ -57,10 +57,10 @@ function AddWidgetForm(props: Props) {
           value={widgetData.mfg}
         />
 
-        <label htmlFor="instock">In Stock</label>
+        <label htmlFor="inStock">In Stock</label>
         <input
           type="number"
-          name="instock"
+          name="inStock"
           id=""
           onChange={handleChange}
           value={widgetData.inStock}
