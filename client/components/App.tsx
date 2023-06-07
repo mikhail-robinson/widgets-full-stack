@@ -21,7 +21,13 @@ function App() {
       <div>
         <h1>Widgets for the win!</h1>
         {widgets.map((widget) => (
-          <div key={widget.id}>
+          <div
+            key={widget.id}
+            style={{
+              backgroundColor: widget.name.split(' ')[0],
+              width: '200px',
+            }}
+          >
             <h3>{widget.name}</h3>
             <p>Price: {widget.price}</p>
             <p>Manufacturer: {widget.mfg}</p>
