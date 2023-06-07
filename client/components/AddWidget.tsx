@@ -37,7 +37,7 @@ function AddWidgetsForm(props: Props) {
         style={{ display: 'flex', flexDirection: 'column', width: '200px' }}
       >
         <label style={{ marginTop: '20px' }} htmlFor="name">
-          name
+          Name:
         </label>
         <input
           type="text"
@@ -48,7 +48,7 @@ function AddWidgetsForm(props: Props) {
           className="text-slate-900"
         />
         <label style={{ marginTop: '20px' }} htmlFor="price">
-          price
+          Price:
         </label>
         <input
           type="text"
@@ -60,7 +60,7 @@ function AddWidgetsForm(props: Props) {
         />
 
         <label style={{ marginTop: '20px' }} htmlFor="mfg">
-          mfg
+          Manufacturer:
         </label>
         <input
           type="text"
@@ -72,7 +72,7 @@ function AddWidgetsForm(props: Props) {
         />
 
         <label style={{ marginTop: '20px' }} htmlFor="inStock">
-          inStock
+          In Stock:
         </label>
         <input
           type="text"
