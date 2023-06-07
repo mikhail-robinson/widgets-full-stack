@@ -7,7 +7,6 @@
 }
 
 
-
 .flex {
   display: flex;
   flex-direction: column;
@@ -15,7 +14,26 @@
   width: 50vw;
 }
 
+.list{
+  
+  flex-direction: row;
+  width: 80vw;
+}
+
+.list ul {
+  list-style-type:none;
+}
+
 .form button {
   margin-inline: auto;
   width: 50%;
+}
+
+.widgetListItemContainer {
+ flex-direction: row;
+ padding-block: 0.5em; 
+}
+
+.widgetListItem{
+  width: 100%;
 }

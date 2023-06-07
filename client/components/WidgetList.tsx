@@ -7,11 +7,17 @@ interface Props{
 export default function WidgetList(props:Props) {
   const data = props.widgets
 
-  return <ul>
-  {data.map(widget => {
-    return (
-      <li key={widget.id}>{widget.name}</li>
-    )
-  })}
-  </ul>
+  return <div className="list">
+    <ul>
+    {data.map(widget => {
+      return (<>
+        <div className="widgetListItemContainer">
+          <li key={widget.id}><ul>
+            <li className="widgetListItem"><strong>Name:</strong> {widget.name}</li> <strong>Price:</strong> ${widget.price} <li className="widgetListItem"><strong>Manufacturer:</strong> {widget.mfg}</li> <li className="widgetListItem"><strong>Stock:</strong> {widget.inStock}</li>
+          </ul></li>
+        </div>
+        </>)
+    })}
+    </ul>
+  </div>
 }
