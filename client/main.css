@@ -15,7 +15,8 @@
 }
 
 .list{
-  
+  padding-top: 2em;
+  margin-inline: auto;
   flex-direction: row;
   width: 80vw;
 }
@@ -31,9 +32,11 @@
 
 .widgetListItemContainer {
  flex-direction: row;
- padding-block: 0.5em; 
 }
 
 .widgetListItem{
-  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+  width: 70vw;
+  padding-block: 0.5em; 
 }

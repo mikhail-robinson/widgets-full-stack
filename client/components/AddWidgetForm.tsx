@@ -1,11 +1,16 @@
 import { useState } from 'react'
+import { addWidget } from '../apiClient'
 
-export default function AddWidgetForm() {
+interface Props {
+  loadWidgets: () => void
+}
+
+export default function AddWidgetForm(props:Props) {
   const [widgetData, setWidgetData] = useState({
     name: '',
-    price: '',
+    price: 0,
     mfg: '',
-    inStock: '',
+    inStock: 0,
   })
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -19,15 +24,15 @@ export default function AddWidgetForm() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(event)
-
     console.log(widgetData)
+    addWidget(widgetData)
+    props.loadWidgets()
   }
 
   return (
     <>
       <h2>Add a Widget</h2>
-      <form action={handleSubmit} className="form flex">
+      <form onSubmit={handleSubmit} className="form flex">
         <label htmlFor="name">Widget Name</label>
         <input
           type="text"
@@ -38,7 +43,7 @@ export default function AddWidgetForm() {
         />
         <label htmlFor="price">Price</label>
         <input
-          type="text"
+          type="number"
           name="price"
           id="price"
           onChange={handleChange}
@@ -54,8 +59,8 @@ export default function AddWidgetForm() {
         />
         <label htmlFor="inStock">In Stock</label>
         <input
-          type="text"
-          name="stock"
+          type="number"
+          name="inStock"
           id="inStock"
           onChange={handleChange}
           value={widgetData.inStock}

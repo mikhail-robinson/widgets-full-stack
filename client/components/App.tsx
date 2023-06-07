@@ -12,6 +12,12 @@ function App() {
   const [widgets, setWidgets] = useState(initialWidgetsArr as Widget[])
 
   useEffect(() => {
+    
+    loadWidgets()
+  }, [])
+  
+  function loadWidgets(){
+    console.log("loaded widgets");
     getWidgets()
     .then((fetchedWidgets) => {
       setWidgets(fetchedWidgets)
@@ -20,12 +26,12 @@ function App() {
         console.error(`Something went wrong when fetching widgets`);        
       }
     })    
-  }, [])
+  }
   return (
     <>
     <div>
       <h1>Widgets for the win!</h1>
-      <AddWidgetForm />
+      <AddWidgetForm loadWidgets={loadWidgets} />
       <WidgetList widgets={widgets} />
     </div>
     </>
