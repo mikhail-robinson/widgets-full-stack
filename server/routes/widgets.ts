@@ -1,16 +1,44 @@
 import express from 'express'
-import { getWidgets } from '../db/db'
+import * as db from '../db/db'
+import { widgetSchema, NewWidget } from '../../models/Widget'
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  getWidgets()
+  db.getWidgets()
     .then((widgets) => {
       res.json(widgets)
     })
     .catch((err) => {
       res.status(500).send(err.message)
     })
+})
+
+router.post('/', async (req, res) => {
+  try {
+    const input = req.body as NewWidget
+    const newWidget = widgetSchema.parse(input)
+    await db.addWidget(newWidget)
+    
+    res.sendStatus(201)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    await db.deleteWidget(id)
+    console.log(id)
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
 })
 
 export default router
