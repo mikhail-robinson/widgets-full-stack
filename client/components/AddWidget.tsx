@@ -44,47 +44,59 @@ function AddWidget(props: Props) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Widget Name</label>
-        <input
-          type="text"
-          name="name"
-          id=""
-          onChange={handleChangeString}
-          value={widgetData.name}
-        />
-        <label htmlFor="price">Widget Price</label>
-        <input
-          type="text"
-          name="price"
-          id=""
-          onChange={handleChangeNumber}
-          value={widgetData.price}
-        />
-        <label htmlFor="mfg">Widget Mfg</label>
-        <input
-          type="text"
-          name="mfg"
-          id=""
-          onChange={handleChangeString}
-          value={widgetData.mfg}
-        />
-        <label htmlFor="inStock">Widget Stock</label>
-        <input
-          type="text"
-          name="inStock"
-          id=""
-          onChange={handleChangeNumber}
-          value={widgetData.inStock}
-        />
-        <label htmlFor="rating">Widget Rating</label>
-        <input
-          type="text"
-          name="rating"
-          id=""
-          onChange={handleChangeNumber}
-          value={widgetData.rating}
-        />
-        <button type="submit">Submit</button>
+        <div>
+          <label htmlFor="name">Widget Name</label> <br />
+          <input
+            type="text"
+            name="name"
+            id=""
+            onChange={handleChangeString}
+            value={widgetData.name}
+          />
+        </div>
+        <div>
+          <label htmlFor="price">Widget Price</label> <br />
+          <input
+            type="text"
+            name="price"
+            id=""
+            onChange={handleChangeNumber}
+            value={widgetData.price}
+          />
+        </div>
+        <div>
+          <label htmlFor="mfg">Widget Mfg</label> <br />
+          <input
+            type="text"
+            name="mfg"
+            id=""
+            onChange={handleChangeString}
+            value={widgetData.mfg}
+          />
+        </div>
+        <div>
+          <label htmlFor="inStock">Widget Stock</label> <br />
+          <input
+            type="text"
+            name="inStock"
+            id=""
+            onChange={handleChangeNumber}
+            value={widgetData.inStock}
+          />
+        </div>
+        <div>
+          <label htmlFor="rating">Widget Rating</label> <br />
+          <input
+            type="text"
+            name="rating"
+            id=""
+            onChange={handleChangeNumber}
+            value={widgetData.rating}
+          />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </>
   )

@@ -41,47 +41,59 @@ function UpdateWidget(props: Props) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Widget Name</label>
-        <input
-          type="text"
-          name="name"
-          id=""
-          onChange={handleChangeString}
-          value={widget.name}
-        />
-        <label htmlFor="price">Widget Price</label>
-        <input
-          type="text"
-          name="price"
-          id=""
-          onChange={handleChangeNumber}
-          value={widget.price}
-        />
-        <label htmlFor="mfg">Widget Mfg</label>
-        <input
-          type="text"
-          name="mfg"
-          id=""
-          onChange={handleChangeString}
-          value={widget.mfg}
-        />
-        <label htmlFor="inStock">Widget Stock</label>
-        <input
-          type="text"
-          name="inStock"
-          id=""
-          onChange={handleChangeNumber}
-          value={widget.inStock}
-        />
-        <label htmlFor="rating">Widget Rating</label>
-        <input
-          type="text"
-          name="rating"
-          id=""
-          onChange={handleChangeNumber}
-          value={widget.rating}
-        />
-        <button type="submit">Update</button>
+        <div>
+          <label htmlFor="name">Widget Name</label> <br />
+          <input
+            type="text"
+            name="name"
+            id=""
+            onChange={handleChangeString}
+            value={widget.name}
+          />
+        </div>
+        <div>
+          <label htmlFor="price">Widget Price</label> <br />
+          <input
+            type="text"
+            name="price"
+            id=""
+            onChange={handleChangeNumber}
+            value={widget.price}
+          />
+        </div>
+        <div>
+          <label htmlFor="mfg">Widget Mfg</label> <br />
+          <input
+            type="text"
+            name="mfg"
+            id=""
+            onChange={handleChangeString}
+            value={widget.mfg}
+          />
+        </div>
+        <div>
+          <label htmlFor="inStock">Widget Stock</label> <br />
+          <input
+            type="text"
+            name="inStock"
+            id=""
+            onChange={handleChangeNumber}
+            value={widget.inStock}
+          />
+        </div>
+        <div>
+          <label htmlFor="rating">Widget Rating</label> <br />
+          <input
+            type="text"
+            name="rating"
+            id=""
+            onChange={handleChangeNumber}
+            value={widget.rating}
+          />
+        </div>
+        <div>
+          <button type="submit">Update</button>
+        </div>
       </form>
 
     </>
