@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { addWidget, deleteWidget } from '../apiClient'
-import { NewWidget } from '../../models/Widget'
+
+import { deleteWidget } from '../apiClient'
+
 
 interface Props {
   id: number,

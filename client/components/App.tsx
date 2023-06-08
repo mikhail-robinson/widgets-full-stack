@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getWidgets } from '../apiClient'
 import AddWidget from './AddWidget'
 import DeleteWidget from './DeleteWidget'
+import UpdateWidget from './UpdateWidget'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
@@ -43,6 +44,7 @@ function App() {
           <li key={widget.id}>
             {widget.name}: Qty {widget.inStock}, ${widget.price}
             <DeleteWidget id={widget.id} loadWidgets={loadWidgets} />
+            <UpdateWidget widget={widget} loadWidgets={loadWidgets} />
           </li>
         ))}
       </ul>

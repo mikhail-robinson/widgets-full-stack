@@ -15,3 +15,9 @@ export function deleteWidget(id: number, db = connection) {
   
   return db<Models.Widget>('widgets').where('id', id).del()
 }
+
+export function updateWidget(id: number, updatedWidget: Models.Widget, db = connection) {
+  console.log(id)
+  
+  return db<Models.Widget>('widgets').where('id', id).update(updatedWidget)
+}

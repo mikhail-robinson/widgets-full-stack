@@ -1,43 +1,40 @@
+
 import { useState } from 'react'
-import { addWidget } from '../apiClient'
-import { NewWidget } from '../../models/Widget'
+import { Widget } from '../../models/Widget'
+import { updateWidget } from '../apiClient'
+
+
 
 interface Props {
-  loadWidgets: () => void
+  widget: Widget,
+  loadWidgets: () => void,
 }
 
-function AddWidget(props: Props) {
-  const [widgetData, setWidgetData] = useState({
-    name: '',
-    price: 0,
-    mfg: '',
-    inStock: 0,
-  } as NewWidget)
+function UpdateWidget(props: Props) {
+
+  const [widget, setWidget] = useState(props.widget)
 
   function handleChangeString(event: React.ChangeEvent<HTMLInputElement>) {
     const name = event.target.name
     const value = event.target.value
-    console.log(name, value)
 
-    const newData = { ...widgetData, [name]: value }
+    const newData = { ...widget, [name]: value }
 
-    setWidgetData(newData)
+    setWidget(newData)
   }
 
   function handleChangeNumber(event: React.ChangeEvent<HTMLInputElement>) {
     const name = event.target.name
     const value = event.target.value
-    console.log(name, value)
 
-    const newData = { ...widgetData, [name]: Number(value) }
+    const newData = { ...widget, [name]: Number(value) }
 
-    setWidgetData(newData)
+    setWidget(newData)
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    await addWidget(widgetData)
-
+    await updateWidget(widget)
     props.loadWidgets()
   }
 
@@ -50,7 +47,7 @@ function AddWidget(props: Props) {
           name="name"
           id=""
           onChange={handleChangeString}
-          value={widgetData.name}
+          value={widget.name}
         />
         <label htmlFor="price">Widget Price</label>
         <input
@@ -58,7 +55,7 @@ function AddWidget(props: Props) {
           name="price"
           id=""
           onChange={handleChangeNumber}
-          value={widgetData.price}
+          value={widget.price}
         />
         <label htmlFor="mfg">Widget Mfg</label>
         <input
@@ -66,7 +63,7 @@ function AddWidget(props: Props) {
           name="mfg"
           id=""
           onChange={handleChangeString}
-          value={widgetData.mfg}
+          value={widget.mfg}
         />
         <label htmlFor="inStock">Widget Stock</label>
         <input
@@ -74,12 +71,13 @@ function AddWidget(props: Props) {
           name="inStock"
           id=""
           onChange={handleChangeNumber}
-          value={widgetData.inStock}
+          value={widget.inStock}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Update</button>
       </form>
+
     </>
   )
 }
 
-export default AddWidget
+export default UpdateWidget
