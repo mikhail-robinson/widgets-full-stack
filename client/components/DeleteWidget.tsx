@@ -10,7 +10,7 @@ interface Props {
 function DeleteWidget(props: Props) {
 
 
-  async function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+  async function handleClick() {
     await deleteWidget(props.id)
     props.loadWidgets()
   }

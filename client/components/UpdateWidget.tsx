@@ -73,6 +73,14 @@ function UpdateWidget(props: Props) {
           onChange={handleChangeNumber}
           value={widget.inStock}
         />
+        <label htmlFor="rating">Widget Rating</label>
+        <input
+          type="text"
+          name="rating"
+          id=""
+          onChange={handleChangeNumber}
+          value={widget.rating}
+        />
         <button type="submit">Update</button>
       </form>
 

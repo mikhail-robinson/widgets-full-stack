@@ -5,6 +5,7 @@ export interface NewWidget {
   price: number
   mfg: string
   inStock: number
+  rating: number
 }
 
 export interface Widget {
@@ -13,6 +14,7 @@ export interface Widget {
   price: number
   mfg: string
   inStock: number
+  rating: number
 }
 
 export const widgetSchema = z.object({
@@ -20,6 +22,7 @@ export const widgetSchema = z.object({
   price: z.number(),
   mfg: z.string(),
   inStock: z.number(),
+  rating: z.number(),
 })
 
 export const widgetBackEndSchema = z.object({
@@ -28,4 +31,5 @@ export const widgetBackEndSchema = z.object({
   mfg: z.string(),
   inStock: z.number(),
   id: z.number(),
+  rating: z.number(),
 })

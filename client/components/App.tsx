@@ -42,9 +42,12 @@ function App() {
       <ul>
         {widgets.map((widget) => (
           <li key={widget.id}>
-            {widget.name}: Qty {widget.inStock}, ${widget.price}
-            <DeleteWidget id={widget.id} loadWidgets={loadWidgets} />
-            <UpdateWidget widget={widget} loadWidgets={loadWidgets} />
+            <p>Product Name: {widget.name}</p>
+            <p>Qty: {widget.inStock}</p>
+            <p>Price: ${widget.price}</p>
+            <p>Rating: {widget.rating}</p>
+            <div><DeleteWidget id={widget.id} loadWidgets={loadWidgets} /></div>
+            <div><UpdateWidget widget={widget} loadWidgets={loadWidgets} /></div>
           </li>
         ))}
       </ul>

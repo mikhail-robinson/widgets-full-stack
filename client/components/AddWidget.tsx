@@ -76,6 +76,14 @@ function AddWidget(props: Props) {
           onChange={handleChangeNumber}
           value={widgetData.inStock}
         />
+        <label htmlFor="rating">Widget Rating</label>
+        <input
+          type="text"
+          name="rating"
+          id=""
+          onChange={handleChangeNumber}
+          value={widgetData.rating}
+        />
         <button type="submit">Submit</button>
       </form>
     </>

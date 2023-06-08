@@ -1,10 +1,10 @@
 {
   "workbench.colorCustomizations": {
-    "tab.activeBorder": "#A7ECEE",
-    "titleBar.activeBackground": "#A7ECEE",
+    "tab.activeBorder": "#EA906C",
+    "titleBar.activeBackground": "#EA906C",
     "titleBar.activeForeground": "#000000",
-    "statusBar.background": "#A7ECEE",
+    "statusBar.background": "#EA906C",
     "statusBar.foreground": "#000000"
   },
-  "window.title": "~[client]~${separator}${separator}${separator}${separator}${separator}${separator}${separator}${separator}${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}"
+  "window.title": "~[client api]~${separator}${separator}${separator}${separator}${separator}${separator}${separator}${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}"
 }
