@@ -1,4 +1,6 @@
+import { useId } from 'react'
 import { Widget } from '../../models/Widget'
+import WidgetListItem from './WidgetListItem'
 
 interface Props {
   widgets: Widget[]
@@ -6,20 +8,16 @@ interface Props {
 
 export default function WidgetList(props: Props) {
   const data = props.widgets
+  
 
   return (
-    <div className="list">
+    <div className="list flex">
       
-        {data.map((widget) => {
+        {data.map((widget, i) => {
           return (
-            
-              <div key={widget.name} className="widgetListItem">
-                Name: {widget.name}
-                 Price: ${widget.price} 
-                 Manufacturer: {widget.mfg} 
-                 Stock: {widget.inStock} 
-              </div>
-            
+          <>
+            <WidgetListItem key={widget.name} data={widget} />
+          </>
           )
         })}
 

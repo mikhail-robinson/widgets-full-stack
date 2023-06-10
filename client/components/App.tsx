@@ -17,10 +17,10 @@ function App() {
   }, [])
   
   function loadWidgets(){
-    console.log("loaded widgets");
     getWidgets()
     .then((fetchedWidgets) => {
       setWidgets(fetchedWidgets)
+      console.log("loaded widgets");
     }).catch((error) => {
       if (error instanceof Error) {
         console.error(`Something went wrong when fetching widgets`);        

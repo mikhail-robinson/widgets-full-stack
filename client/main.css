@@ -22,10 +22,12 @@ h1, h2 {
   margin-inline: auto;
   flex-direction: row;
   width: 80vw;
+  
 }
 
 .list ul {
   list-style-type:none;
+  text-align: left;
 }
 
 .form button {

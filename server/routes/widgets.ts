@@ -7,9 +7,13 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getWidgets()
     .then((widgets) => {
+      console.log(`Routes: `,widgets);
+      
       res.json(widgets)
     })
     .catch((err) => {
+      console.error(`Routes: `,err.message);
+      
       res.status(500).send(err.message)
     })
 })
