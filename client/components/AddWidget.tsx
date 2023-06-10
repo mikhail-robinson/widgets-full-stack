@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { addWidgets } from '../apiClient'
-import { Widget, NewWidget } from '../../models/Widget'
+import { NewWidget } from '../../models/Widget'
 
 interface Props {
   loadWidgets: () => void
@@ -39,46 +39,67 @@ function AddWidgetForm(props: Props) {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="widget-form">
-        <label htmlFor="name">Name</label>
+    <form onSubmit={handleSubmit} className="widget-form">
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
         <input
           type="text"
           name="name"
           id=""
           onChange={handleChange}
           value={widgetData.name}
+          className="form-input"
         />
-        <label htmlFor="price">Price</label>
+      </div>
+
+      <div className="form-row">
+        <label htmlFor="price" className="form-label">
+          Price
+        </label>
         <input
           type="number"
           name="price"
           id=""
           onChange={handleChange}
           value={widgetData.price}
+          className="form-input"
         />
+      </div>
 
-        <label htmlFor="mfg">MFG</label>
+      <div className="form-row">
+        <label htmlFor="mfg" className="form-label">
+          MFG
+        </label>
         <input
           type="text"
           name="mfg"
           id=""
           onChange={handleChange}
           value={widgetData.mfg}
+          className="form-input"
         />
+      </div>
 
-        <label htmlFor="inStock">In Stock</label>
+      <div className="form-row">
+        <label htmlFor="inStock" className="form-label">
+          In Stock
+        </label>
         <input
           type="number"
           name="inStock"
           id=""
           onChange={handleChange}
           value={widgetData.inStock}
+          className="form-input"
         />
+      </div>
 
-        <button type="submit">Submit</button>
-      </form>
-    </>
+      <button type="submit" className="form-button">
+        Submit
+      </button>
+    </form>
   )
 }
 

@@ -4,14 +4,15 @@ import { addWidget, getWidgets } from '../db/db'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  getWidgets()
-    .then((widgets) => {
-      res.json(widgets)
-    })
-    .catch((err) => {
-      res.status(500).send(err.message)
-    })
+router.get('/', async (req, res) => {
+  try {
+    const widgets = await getWidgets()
+    res.json(widgets)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: 'Internal Server Error' })
+    }
+  }
 })
 
 router.post('/', async (req, res) => {
@@ -22,7 +23,7 @@ router.post('/', async (req, res) => {
     res.json(widgets)
   } catch (error) {
     if (error instanceof Error) {
-      res.status(500).json({ error: error.message })
+      res.status(500).json({ error: 'Internal Server Error' })
     }
   }
 })
