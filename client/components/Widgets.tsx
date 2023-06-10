@@ -2,13 +2,13 @@ import * as Models from '../../models/Widget'
 import DeleteWidgets from './DeleteWidget'
 
 interface Props {
+  loadWidgets: () => void
   widgets: Models.Widget[]
 }
 
 function Widgets(props: Props) {
   return (
     <div>
-      {/* map through and display all widgets in this space by calling props */}
       <ul>
         {props.widgets.map((widget) => (
           <li key={widget.id}>
@@ -20,7 +20,7 @@ function Widgets(props: Props) {
             <br />
             MFG: {widget.mfg}
             <br />
-            <DeleteWidgets widget={widget} />
+            <DeleteWidgets widget={widget} loadWidgets={props.loadWidgets} />
           </li>
         ))}
       </ul>

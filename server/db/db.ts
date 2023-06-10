@@ -10,7 +10,6 @@ export function addWidget(
   input: Models.NewWidget,
   db = connection
 ): Promise<Models.NewWidget[]> {
-  // important to destructure and make sure your names match your naming conventions
   const { name, inStock, price, mfg } = input
   return db<Models.NewWidget>('widgets').insert({ name, inStock, price, mfg })
 }

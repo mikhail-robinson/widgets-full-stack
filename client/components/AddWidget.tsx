@@ -2,14 +2,11 @@ import { useState } from 'react'
 import { NewWidget, Widget } from '../../models/Widget'
 import { addWidget } from '../apiClient'
 
-// import function as type void
-
 interface Props {
   loadWidgets: () => void
 }
 
 function AddWidget(props: Props) {
-  // declare the type explicitly within set state function
   const [newWidget, setNewWidget] = useState({
     name: '',
     price: 0,
@@ -17,7 +14,6 @@ function AddWidget(props: Props) {
     inStock: 0,
   } as NewWidget)
 
-  // handle change - when data changes within the input
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const name = event.target.name
     const value = event.target.value
@@ -27,13 +23,9 @@ function AddWidget(props: Props) {
     return setNewWidget(result)
   }
 
-  // handle submit - when button is clicked on submit
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    // dot into event and prevent default action
     event.preventDefault()
-    // await call your API
     await addWidget(newWidget)
-    // props.your function to call
     props.loadWidgets()
   }
 
