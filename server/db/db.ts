@@ -16,8 +16,9 @@ export function addWidget(
 }
 
 export function deleteWidget(
-  id: number,
+  input: Models.Widget,
   db = connection
 ): Promise<Models.Widget[]> {
+  const { id } = input
   return db<Models.Widget>('widgets').where('id', id).del()
 }

@@ -11,7 +11,6 @@ function App() {
   // add use effect which accepts a function
   useEffect(() => {
     loadWidgets()
-    // console.log('using the effect')
   }, [])
 
   // create loadWigets function
