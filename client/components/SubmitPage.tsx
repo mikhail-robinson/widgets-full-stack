@@ -1,8 +1,7 @@
 function SubmitPage() {
   return (
     <div>
-      <h2>Submit Page</h2>
-      {/* Add the content and form for submitting */}
+      <h2>You have successfully submitted a new widget! 🥳🥳🥳</h2>
     </div>
   )
 }

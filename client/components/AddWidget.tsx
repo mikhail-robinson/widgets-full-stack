@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { addWidgets } from '../apiClient'
 import { NewWidget } from '../../models/Widget'
+import { Link } from 'react-router-dom'
 
 interface Props {
   loadWidgets: () => void
@@ -96,9 +97,9 @@ function AddWidgetForm(props: Props) {
         />
       </div>
 
-      <button type="submit" className="form-button">
+      <Link to={'/submit'} className="form-button">
         Submit
-      </button>
+      </Link>
     </form>
   )
 }
