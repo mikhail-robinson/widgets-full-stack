@@ -96,10 +96,9 @@ function AddWidgetForm(props: Props) {
           className="form-input"
         />
       </div>
-
-      <Link to={'/submit'} className="form-button">
-        Submit
-      </Link>
+      <button type="submit" className="form-button">
+        <Link to="/submit">Submit</Link>
+      </button>
     </form>
   )
 }
