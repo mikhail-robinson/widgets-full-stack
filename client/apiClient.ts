@@ -10,3 +10,11 @@ export async function getWidgets(){
   return res.body as Widget[]
 
 }
+export async function addWidget(widgetDAta: NewWidget){
+  return await request.post(widgetUrl).send(widgetDAta)
+
+}
+
+export async function deleteWidget(id: number) {
+  return await request.delete(`${widgetUrl}${id}`)
+}

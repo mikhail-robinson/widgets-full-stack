@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-
 import * as Models from '../../models/Widget'
-
 import { getWidgets } from '../apiClient'
+import AddWidget from './AddWidget'
+import 'bulma/css/bulma.css'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
@@ -23,8 +23,11 @@ function App() {
   }, [])
   return (
     <>
-      <div>
-        <h1>Widgets for the win!</h1>
+      <div className ='container is-primary'>
+        <div >
+        <h1 className= 'title'>Widgets for the win!</h1>
+        </div>
+        <br></br>
       </div>
       <ul>
          {widgets.map((widget)=> (
@@ -33,6 +36,9 @@ function App() {
         </li>
         ))}
       </ul>
+      <div>
+        <AddWidget/>
+      </div>
 
     
     </>
