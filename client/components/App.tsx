@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Link, Outlet } from 'react-router-dom'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
-  const [showForm, setShowForm] = useState(true) //taken from chatGPT. Used to set the visibily of the form
+  const [showForm, setShowForm] = useState(true) //taken from chatGPT. Used to set the visibily of the form based on a condition
 
   useEffect(() => {
     loadWidgets()
@@ -20,7 +20,7 @@ function App() {
       })
       .catch((err) => {
         if (err instanceof Error) {
-          console.error('Failed to load widgets')
+          console.error('Failed to load widgets', err)
         }
       })
   }
