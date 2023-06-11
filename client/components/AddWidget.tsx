@@ -44,60 +44,63 @@ function AddWidgetForm(props: Props) {
       <div className="form-row">
         <label htmlFor="name" className="form-label">
           Name
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleChange}
+            value={widgetData.name}
+            className="form-input"
+          />
         </label>
-        <input
-          type="text"
-          name="name"
-          id=""
-          onChange={handleChange}
-          value={widgetData.name}
-          className="form-input"
-        />
       </div>
 
       <div className="form-row">
         <label htmlFor="price" className="form-label">
           Price
+          <input
+            type="number"
+            name="price"
+            id="price"
+            onChange={handleChange}
+            value={widgetData.price}
+            className="form-input"
+          />
         </label>
-        <input
-          type="number"
-          name="price"
-          id=""
-          onChange={handleChange}
-          value={widgetData.price}
-          className="form-input"
-        />
       </div>
 
       <div className="form-row">
         <label htmlFor="mfg" className="form-label">
           MFG
+          <input
+            type="text"
+            name="mfg"
+            id="mfg"
+            onChange={handleChange}
+            value={widgetData.mfg}
+            className="form-input"
+          />
         </label>
-        <input
-          type="text"
-          name="mfg"
-          id=""
-          onChange={handleChange}
-          value={widgetData.mfg}
-          className="form-input"
-        />
       </div>
 
       <div className="form-row">
         <label htmlFor="inStock" className="form-label">
           In Stock
+          <input
+            type="number"
+            name="inStock"
+            id="inStock"
+            onChange={handleChange}
+            value={widgetData.inStock}
+            className="form-input"
+          />
         </label>
-        <input
-          type="number"
-          name="inStock"
-          id=""
-          onChange={handleChange}
-          value={widgetData.inStock}
-          className="form-input"
-        />
       </div>
+
       <button type="submit" className="form-button">
-        <Link to="/submit">Submit</Link>
+        <Link to="/submit" className="form-button">
+          Submit
+        </Link>
       </button>
     </form>
   )
