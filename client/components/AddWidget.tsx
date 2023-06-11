@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { addWidgets } from '../apiClient'
 import { NewWidget } from '../../models/Widget'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   loadWidgets: () => void

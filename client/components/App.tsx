@@ -3,7 +3,7 @@ import { getWidgets } from '../apiClient'
 import * as Models from '../../models/Widget'
 import AddWidgetForm from './AddWidget'
 import './main.css'
-import { BrowserRouter as Router, Route, Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])

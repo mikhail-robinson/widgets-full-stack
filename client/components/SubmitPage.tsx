@@ -1,9 +1,4 @@
 import { Link } from 'react-router-dom'
-
-interface Props {
-  loadWidgets: () => void
-}
-
 interface Form {
   toggleForm: () => void
 }
