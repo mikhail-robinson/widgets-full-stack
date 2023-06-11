@@ -11,7 +11,16 @@ export default createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
-        <Route path="submit" element={<SubmitPage />} />
+        <Route
+          path="submit"
+          element={
+            <SubmitPage
+              toggleForm={function (): void {
+                throw new Error('Function not implemented.')
+              }}
+            />
+          }
+        />
       </Route>
     </>
   )

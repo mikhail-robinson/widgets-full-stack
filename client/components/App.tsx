@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Link, Outlet } from 'react-router-dom'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
+  const [showForm, setShowForm] = useState(true) //taken from chatGPT. Used to set the visibily of the form
 
   useEffect(() => {
     loadWidgets()
@@ -24,10 +25,14 @@ function App() {
       })
   }
 
+  function toggleForm() {
+    setShowForm((prevState) => !prevState)
+  }
+
   return (
     <div className="container">
       <h1>Widgets for the win!</h1>
-      <AddWidgetForm loadWidgets={loadWidgets} />
+      {showForm && <AddWidgetForm loadWidgets={loadWidgets} />}
       <Outlet />
       {widgets.map((widget) => (
         <div className="widget" key={widget.id}>
