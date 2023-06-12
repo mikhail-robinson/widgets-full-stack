@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
-import { Widget } from '../../models/Widget'
+import * as Models from '../../models/Widget'
 import { getWidgets } from '../apiClient'
 
 function App() {
-  const [widgets, setWidgets] = useState([] as Widget[])
+  const [widgets, setWidgets] = useState([] as Models.Widget[])
   useEffect(() => {
     getWidgets()
       .then((fetchedWidgets) => {
         setWidgets(fetchedWidgets)
         // console.log(fetchedWidgets)
       })
-      .catch((err) => {
-        console.error(err.message)
+      .catch(() => {
+        console.error("Something went wrong rendering widgets list.")
       })
   }, [])
 
