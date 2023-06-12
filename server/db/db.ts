@@ -9,3 +9,20 @@ export function getWidgets(db = connection): Promise<Models.Widget[]> {
 export function addWidget(newWidget: Models.NewWidget, db = connection) {
   return db<Models.Widget>('widgets').insert(newWidget)
 }
+
+export function deleteWidget(id: number, db = connection) {
+  return db<Models.Widget>('widgets').where('id', id).delete()
+}
+
+export function updateWidget(
+  id: number,
+  widget: Models.Widget,
+  db = connection
+) {
+  return db<Models.Widget>('widgets').where('id', id).update({
+    name: widget.name,
+    price: widget.price,
+    mfg: widget.mfg,
+    inStock: widget.inStock,
+  })
+}

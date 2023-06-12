@@ -19,5 +19,13 @@ export const widgetSchema = z.object({
   name: z.string(),
   price: z.number(),
   mfg: z.string(),
-  inStock: z.number()
+  inStock: z.number(),
+})
+
+export const widgetBackEndSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  price: z.number(),
+  mfg: z.string(),
+  inStock: z.number(),
 })
