@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
     res.json(widgets)
   } catch (error) {
     if (error instanceof Error) {
-      res.status(500).json({ error: 'Internal Server Error - getWidgets' })
+      console.error(error)
+      res.status(500).json({ error: 'Internal Server Error' })
     }
   }
 })
@@ -23,7 +24,8 @@ router.post('/', async (req, res) => {
     res.json(widgets)
   } catch (error) {
     if (error instanceof Error) {
-      res.status(500).json({ error: 'Internal Server Error - addWidget' })
+      console.error(error)
+      res.status(500).json({ error: 'Internal Server Error' })
     }
   }
 })
