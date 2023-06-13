@@ -1,5 +1,5 @@
 import * as Models from '../../models/Widget'
-import DeleteWidgets from './DeleteWidget'
+import DeleteWidgets from './DeleteWidgets'
 
 interface Props {
   loadWidgets: () => void

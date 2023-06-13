@@ -30,7 +30,7 @@ router.delete('/', async (req, res) => {
   try {
     const input = req.body
     await db.deleteWidget(input)
-    res.status(200)
+    res.sendStatus(200)
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).json({ error: `Oop! Wrong turn again!` })
@@ -39,3 +39,4 @@ router.delete('/', async (req, res) => {
 })
 
 export default router
+
