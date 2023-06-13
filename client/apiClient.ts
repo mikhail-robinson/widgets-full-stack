@@ -10,5 +10,9 @@ export async function getWidgets() {
 }
 
 export async function addWidgets(newWidget: NewWidget) {
-  const res = await request.post(widgetUrl).send(newWidget)
+  return await request.post(widgetUrl).send(newWidget)
+}
+
+export async function deleteWidget(deleteWidget: NewWidget) {
+  return await request.delete(widgetUrl).send(deleteWidget)
 }

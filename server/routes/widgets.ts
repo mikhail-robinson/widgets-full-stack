@@ -32,9 +32,9 @@ router.post('/', async (req, res) => {
 
 router.delete('/', async (req, res) => {
   try {
-    const input = req.body
-   await deleteWidget(input)
-    res.status(200)
+    const { id } = req.body
+    await deleteWidget(id)
+    res.sendStatus(200)
   } catch (error) {
     if (error instanceof Error) {
       console.error(error)
