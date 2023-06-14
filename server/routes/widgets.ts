@@ -26,10 +26,10 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const input = req.body
-    await db.deleteWidget(input)
+    const id = Number(req.params.id)
+    await db.deleteWidget(id)
     res.sendStatus(200)
   } catch (err) {
     if (err instanceof Error) {

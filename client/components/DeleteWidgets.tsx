@@ -8,7 +8,7 @@ interface Props {
 
 function DeleteWidgets(props: Props) {
   async function ClickHandler() {
-    await deleteWidget(props.widget)
+    await deleteWidget(props.widget.id)
     props.loadWidgets()
   }
 

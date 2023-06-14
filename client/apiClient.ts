@@ -12,8 +12,6 @@ export async function addWidget(newWidget: NewWidget) {
   return await request.post(widgetUrl).send(newWidget)
 }
 
-export async function deleteWidget(widget: Widget) {
-  console.log('Api Client:', widget)
-
-  return await request.del(widgetUrl).send(widget)
+export async function deleteWidget(id: number) {
+    return await request.del(`${widgetUrl}/${id}`)
 }

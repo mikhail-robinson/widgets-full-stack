@@ -14,10 +14,6 @@ export function addWidget(
   return db<Models.NewWidget>('widgets').insert({ name, inStock, price, mfg })
 }
 
-export function deleteWidget(
-  input: Models.Widget,
-  db = connection
-): Promise<Models.Widget[]> {
-  const { id } = input
-  return db<Models.Widget>('widgets').where('id', id).del()
+export function deleteWidget(id: number,db = connection) {
+    return db('widgets').where('id', id).del()
 }
