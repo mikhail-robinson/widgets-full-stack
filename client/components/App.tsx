@@ -4,6 +4,7 @@ import * as Models from '../../models/Widget'
 import AddWidgetForm from './AddWidget'
 import './main.css'
 import { Outlet } from 'react-router-dom'
+import DeleteWidgetButton from './DeleteWidget'
 
 function App() {
   const [widgets, setWidgets] = useState([] as Models.Widget[])
@@ -41,6 +42,7 @@ function App() {
             <p className="widget-price">Price: ${widget.price}</p>
             <p className="widget-mfg">MFG: {widget.mfg}</p>
             <p className="widget-stock">Stock: {widget.inStock}</p>
+            <DeleteWidgetButton loadWidgets={loadWidgets} widget={widget} />
           </div>
         ))}
       </div>
