@@ -1,5 +1,6 @@
 import express from 'express'
 import * as db from '../db/db'
+import * as Models from '../../models/Widget'
 
 const router = express.Router()
 
@@ -30,6 +31,19 @@ router.delete('/', async (req, res) => {
     const input = req.body
     await db.deleteWidget(input)
     res.status(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message })
+    }
+  }
+})
+
+router.patch('/', async (req, res) => {
+  try {
+    const input = req.body
+    const updatedWidget = JSON.parse(input)
+    await db.updateWidget(updatedWidget.id, updatedWidget)
+    res.status(201)
   } catch (error) {
     if (error instanceof Error) {
       res.status(500).json({ error: error.message })

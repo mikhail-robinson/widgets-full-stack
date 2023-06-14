@@ -12,7 +12,7 @@ export function addWidget(
   db = connection
 ): Promise<NewWidget[]> {
   const { name, price, mfg, inStock } = input
-  return db('widgets').insert({ name, price, mfg, inStock })
+  return db<Widget>('widgets').insert({ name, price, mfg, inStock })
 }
 
 export function deleteWidget(
@@ -21,4 +21,12 @@ export function deleteWidget(
 ): Promise<Widget[]> {
   const { id } = input
   return db<Widget>('widgets').where('id', id).del()
+}
+
+export function updateWidget(
+  id: number,
+  updatedWidget: Widget,
+  db = connection
+) {
+  return db('widgets').update(updatedWidget).where('id', id)
 }

@@ -16,3 +16,7 @@ export async function addWidget(newWidget: NewWidget) {
 export async function deleteWidget(widget: Widget) {
   return await request.del(widgetUrl).send(widget)
 }
+
+export async function updatedWidget(widget: Widget) {
+  return await request.patch(widgetUrl).send(widget)
+}
