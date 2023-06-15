@@ -37,8 +37,16 @@ function AddWidget(props: Props) {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     await addWidget(widgetData)
-
     props.loadWidgets()
+    alert('New Widget added successfully!')
+    setWidgetData({
+      name: '',
+      price: 0,
+      mfg: '',
+      inStock: 0,
+      rating: 0,
+    } as NewWidget)
+
   }
 
   return (
