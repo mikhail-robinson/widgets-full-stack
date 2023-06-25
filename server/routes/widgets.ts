@@ -1,16 +1,46 @@
 import express from 'express'
-import { getWidgets } from '../db/db'
+import { widgetSchema } from '../../models/Widget'
+import { addWidget, getWidgets, deleteWidget } from '../db/db'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  getWidgets()
-    .then((widgets) => {
-      res.json(widgets)
-    })
-    .catch((err) => {
-      res.status(500).send(err.message)
-    })
+router.get('/', async (req, res) => {
+  try {
+    const widgets = await getWidgets()
+    res.json(widgets)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error)
+      res.status(500).json({ error: 'Internal Server Error' })
+    }
+  }
+})
+
+router.post('/', async (req, res) => {
+  try {
+    const input = req.body
+    const widgetData = widgetSchema.parse(input)
+    const widgets = await addWidget(widgetData)
+    res.json(widgets)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error)
+      res.status(500).json({ error: 'Internal Server Error' })
+    }
+  }
+})
+
+router.delete('/', async (req, res) => {
+  try {
+    const { id } = req.body
+    await deleteWidget(id)
+    res.sendStatus(200)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error)
+      res.status(500).json({ error: 'Internal Server Error' })
+    }
+  }
 })
 
 export default router
