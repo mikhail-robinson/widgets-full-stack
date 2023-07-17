@@ -1,6 +1,6 @@
 # The Wonderful World of Widgets
 
-This app focuses on practising consuming an API and building a React front end using this API data
+This app focuses on practising consuming an API and building a React front-end using this API data. It also practises creating SQLite database functions and back-end routes
 ## Setup
 
 ### 0. Installation and migrations
